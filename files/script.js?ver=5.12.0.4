@@ -1,0 +1,550 @@
+
+  // Script
+
+  // Tips
+  const tips = {
+    'm4a': 'MP4 縺九ｉ髻ｳ螢ｰ縺ｮ縺ｿ繧貞叙繧雁�縺励◆繝輔か繝ｼ繝槭ャ繝医〒縲｀P3 蜷梧ｧ倥↓螟壹￥縺ｮ繝励Ξ繧､繝､繝ｼ縺ｧ蜀咲函縺ｧ縺阪∪縺吶�<u>螟画鋤騾溷ｺｦ縺� MP3 繧医ｊ繧ゅ°縺ｪ繧頑掠縺�〒縺吶�</u>',
+    'mp3': '髻ｳ螢ｰ繝輔ぃ繧､繝ｫ縺ｮ讓呎ｺ也噪縺ｪ繝輔か繝ｼ繝槭ャ繝医〒縺吶ょ虚逕ｻ縺九ｉ MP3 縺ｫ螟画鋤縺吶ｋ蝣ｴ蜷医� M4A 繧医ｊ繧よ凾髢薙′縺九°繧翫∪縺吶�',
+    'opus': 'YouTube 縺ｧ謗｡逕ｨ縺輔ｌ縺ｦ縺�ｋ縲�<u>MP3 繧� M4A (AAC) 繧医ｊ繧るｫ倬浹雉ｪ縺ｪ繝輔か繝ｼ繝槭ャ繝医〒縺吶�</u> 縺溘□縺励∝�逕溘〒縺阪ｋ繝励Ξ繧､繝､繝ｼ縺ｯ髯舌ｉ繧後∪縺吶�',
+    'wav': '髱槫悸邵ｮ縺ｮ髻ｳ螢ｰ繝輔か繝ｼ繝槭ャ繝医〒縲√ヵ繧｡繧､繝ｫ繧ｵ繧､繧ｺ縺後°縺ｪ繧雁､ｧ縺阪￥縺ｪ繧翫∪縺吶８AV 蠖｢蠑上＠縺玖ｪｭ縺ｿ霎ｼ繧√↑縺��繝ｬ繧､繝､繝ｼ繧�た繝輔ヨ蜷代￠縺ｧ縺吶�',
+    'mp4': '蜍慕判繝輔ぃ繧､繝ｫ縺ｮ讓呎ｺ也噪縺ｪ繝輔か繝ｼ繝槭ャ繝医〒縺吶ゅム繧ｦ繝ｳ繝ｭ繝ｼ繝牙庄閭ｽ縺ｪ荳逡ｪ鬮倥＞逕ｻ雉ｪ縺ｧ螟画鋤縺励∪縺吶�',
+    'mp4(1080p)': '蜍慕判繝輔ぃ繧､繝ｫ縺ｮ讓呎ｺ也噪縺ｪ繝輔か繝ｼ繝槭ャ繝医〒縺吶�1080p 繧ゅ＠縺上� 1080p 縺ｫ荳逡ｪ霑代＞逕ｻ雉ｪ縺ｧ螟画鋤縺励∪縺吶�',
+    'mp4(720p)': '蜍慕判繝輔ぃ繧､繝ｫ縺ｮ讓呎ｺ也噪縺ｪ繝輔か繝ｼ繝槭ャ繝医〒縺吶�720p 繧ゅ＠縺上� 720p 縺ｫ荳逡ｪ霑代＞逕ｻ雉ｪ縺ｧ螟画鋤縺励∪縺吶�',
+    'mp4(540p)': '蜍慕判繝輔ぃ繧､繝ｫ縺ｮ讓呎ｺ也噪縺ｪ繝輔か繝ｼ繝槭ャ繝医〒縺吶�540p 繧ゅ＠縺上� 540p 縺ｫ荳逡ｪ霑代＞逕ｻ雉ｪ縺ｧ螟画鋤縺励∪縺吶�',
+    'mp4(480p)': '蜍慕判繝輔ぃ繧､繝ｫ縺ｮ讓呎ｺ也噪縺ｪ繝輔か繝ｼ繝槭ャ繝医〒縺吶�480p 繧ゅ＠縺上� 480p 縺ｫ荳逡ｪ霑代＞逕ｻ雉ｪ縺ｧ螟画鋤縺励∪縺吶�',
+    'mp4(360p)': '蜍慕判繝輔ぃ繧､繝ｫ縺ｮ讓呎ｺ也噪縺ｪ繝輔か繝ｼ繝槭ャ繝医〒縺吶�360p 繧ゅ＠縺上� 360p 縺ｫ荳逡ｪ霑代＞逕ｻ雉ｪ縺ｧ螟画鋤縺励∪縺吶�',
+    'webm': 'MP4 繧医ｊ繧ょ悸邵ｮ邇�′鬮倥￥逕ｻ雉ｪ縺ｮ濶ｯ縺�∵眠縺励＞蜍慕判繝輔か繝ｼ繝槭ャ繝医〒縺吶�YouTube 縺ｪ縺ｩ WebM 縺ｫ蟇ｾ蠢懊＠縺ｦ縺�ｋ繧ｵ繧､繝井ｻ･螟悶〒縺ｯ蛻ｩ逕ｨ縺ｧ縺阪∪縺帙ｓ縲�',
+    'etc': '蠖｢蠑上ｒ謖�ｮ壹○縺壹↓繝繧ｦ繝ｳ繝ｭ繝ｼ繝牙庄閭ｽ縺ｪ荳逡ｪ鬮倥＞逕ｻ雉ｪ縺ｧ螟画鋤縺励∪縺吶�MP4 縺ｧ繧� WebM 縺ｧ繧ょ､画鋤縺ｧ縺阪↑縺�圀縺ｫ險ｭ螳壹＠縺ｦ縺ｿ縺ｦ縺上□縺輔＞縲�',
+  }
+
+  // 繝医�繧ｹ繝医�繧ｪ繝励す繝ｧ繝ｳ
+  toastr.options = {
+    "closeButton": false,
+    "debug": false,
+    "newestOnTop": false,
+    "progressBar": false,
+    "positionClass": "toast-bottom-left",
+    "preventDuplicates": false,
+    "onclick": null,
+    "showDuration": "200",
+    "hideDuration": "200",
+    "timeOut": "4000",
+    "extendedTimeOut": "1000",
+    "showEasing": "linear",
+    "hideEasing": "linear",
+    "showMethod": "fadeIn",
+    "hideMethod": "fadeOut"
+  }
+
+  let player;
+
+  $(function(){
+
+    /*
+    // 髮ｪ繧帝剄繧峨○繧�
+    $(document).snowfall({
+      flakeCount : 80,  //髮ｪ縺ｮ驥�
+      flakeIndex : "-5",  //髮ｪ縺ｮz-index縺ｮ蛟､
+      minSize : 4,  //譛蟆上し繧､繧ｺ
+      maxSize : 10,  //譛螟ｧ繧ｵ繧､繧ｺ
+      minSpeed : 1,  //譛蟆城溷ｺｦ
+      maxSpeed : 3,  //譛螟ｧ騾溷ｺｦ
+      round    : true, // 髮ｪ縺ｮ蠖｢繧剃ｸｸ縺上☆繧�
+      shadow   : true, // 髮ｪ縺ｫ蠖ｱ繧偵▽縺代ｋ
+      flakeColor : "#fff", // 髮ｪ縺ｮ濶ｲ繧呈欠螳�
+    });
+    */
+
+    // files/count_(譌･莉�).dat 繧貞叙蠕�
+    $.ajax({
+        url: `files/count/count_${moment().format('YYYYMMDD')}.dat`,
+        type: 'GET',
+        dataType: 'text',
+        timeout: 1000,
+    }).done((data) => {
+        $('#today-count').html(data);
+    });
+
+    // files/count_all.dat 繧貞叙蠕�
+    $.ajax({
+        url: 'files/count/count_all.dat',
+        type: 'GET',
+        dataType: 'text',
+        timeout: 1000,
+    }).done((data) => {
+        $('#total-count').html(data);
+    });
+
+    // files/youtube-dl.dat 繧貞叙蠕�
+    $.ajax({
+        url: 'files/youtube-dl.dat',
+        type: 'GET',
+        dataType: 'text',
+        timeout: 1000,
+    }).done((data) => {
+        $('#youtube-dl-version').html(data);
+    });
+
+    // 繧ｵ繧ｦ繝ｳ繝峨ｒ隱ｭ縺ｿ霎ｼ繧
+    const sound = new Audio();
+    sound.src = 'files/sound.mp3';
+    sound.volume = 0.7;
+    sound.load();
+
+    // 繝輔か繝ｼ繝�險ｭ螳壹ｒ蠕ｩ蜈�☆繧�
+    if (Cookies.get('settings') != undefined){
+      settings = JSON.parse(Cookies.get('settings'));
+      $('#tips').html(tips[settings['format']]);
+      $('option[value="' + settings['format'] + '"]').prop('selected', true);
+      $('input[type="checkbox"][name="usearia2"]').prop('checked', settings['usearia2']);
+      $('input[type="checkbox"][name="embedthumb"]').prop('checked', settings['embedthumb']);
+      $('input[type="checkbox"][name="useav1"]').prop('checked', settings['useav1']);
+      $('input[type="checkbox"][name="playsound"]').prop('checked', settings['playsound']);
+      $('input[type="checkbox"][name="information"]').prop('checked', settings['information']);
+    }
+
+    // 繧ｹ繧ｯ繝ｭ繝ｼ繝ｫ繧偵せ繝�繝ｼ繧ｺ縺ｫ
+    $('a[data-href^="#"]').click(function(event){
+      const speed = 500;
+      const href= $(this).attr('data-href');
+      const target = $(href == '#' || href == '' ? 'html' : href);
+      const maxposition = $(document).height() - $(window).height();
+      let position = target.offset().top - 70;
+      if (position < 0){
+        position = 0;
+      } else if (maxposition < position) {
+        position = maxposition;
+      }
+      $('html, body').animate({ scrollTop:position }, speed, 'swing');
+      return false;
+    });
+
+    // 螟画鋤縺吶ｋ譎る俣縺ｮ遽�峇繧呈欠螳壹☆繧�
+    $('#checkbox_range').change(function(){
+
+      if ($(this).prop('checked')){
+        $('.form-range').velocity('fadeIn', 170);
+      } else {
+        $('.form-range').velocity('fadeOut', 170);
+      }
+
+    })
+
+
+    // 逕ｻ雉ｪ縺ｮ繝√ぉ繝�け繝懊ャ繧ｯ繧ｹ縺悟､画峩縺輔ｌ縺溘ｉ tips 繧定｡ｨ遉ｺ
+    $('select[name="format"]').change(function(){
+      $('#tips').html(tips[this.value]);
+    });
+
+
+    // 繝輔か繝ｼ繝�縺悟､画峩縺輔ｌ縺溘ｉ險ｭ螳壹ｒ菫晏ｭ倥☆繧�
+    $('#form').change(function(){
+
+      // Cookie縺ｫ險ｭ螳壹ｒ菫晏ｭ倥☆繧�
+      const settings = {};
+      settings['format'] = $('option[value="' + $('select[name="format"]').val() + '"]').val();
+      settings['usearia2'] = $('input[type="checkbox"][name="usearia2"]').prop('checked');
+      settings['embedthumb'] = $('input[type="checkbox"][name="embedthumb"]').prop('checked');
+      settings['useav1'] = $('input[type="checkbox"][name="useav1"]').prop('checked');
+      settings['playsound'] = $('input[type="checkbox"][name="playsound"]').prop('checked');
+      settings['information'] = $('input[type="checkbox"][name="information"]').prop('checked');
+      // console.log(settings);
+      Cookies.set('settings', JSON.stringify(settings), { expires: 365 });
+
+    });
+
+    // 螟画鋤髢句ｧ�
+    $('#form').submit(function(event){
+
+      event.preventDefault();
+
+      const url = $('input[name="url"]').val();
+      const title = $('input[name="title"]').val();
+      const formatValue = $('select[name="format"]').val();
+      const format = $(`option[value="${formatValue}"]`).text();
+      const usearia2 = $('input[type="checkbox"][name="usearia2"]').prop('checked');
+
+      // 蜍慕判繝繧ｦ繝ｳ繝ｭ繝ｼ繝峨�蝣ｴ蜷医�繧ｵ繝�Λ繧､繝� API 繧剃ｽｿ縺�
+      // let apiBaseUrl = 'https://receive.shamimomo.net/YouTubeMP3modoki';
+      // if (['mp4', 'mp4(1080p)', 'mp4(720p)', 'mp4(540p)', 'mp4(480p)', 'mp4(360p)', 'webm', 'etc'].includes(formatValue)){
+      //   apiBaseUrl = 'https://receive-satellite.shamimomo.net/YouTubeMP3modoki';
+      // }
+      const apiServers = [
+        'https://ytmm-api-s3.shamimomo.net/YouTubeMP3modoki',
+        'https://ytmm-api-s2.shamimomo.net/YouTubeMP3modoki',
+        'https://ytmm-api-s1.shamimomo.net/YouTubeMP3modoki',
+        'https://receive-satellite.shamimomo.net/YouTubeMP3modoki',
+      ];
+      const apiBaseUrl = apiServers[Math.floor(Math.random() * apiServers.length)];
+
+      if (url == location.href
+          || url == location.protocol + '//' + location.hostname
+          || url == location.protocol + '//' + location.hostname + '/'){
+
+        toastr.error('蜈･蜉帙＆繧後◆ URL 縺後％縺ｮ繧ｵ繧､繝医� URL 縺ｧ縺吶�<br>' + '繧ｳ繝斐�縺吶ｋ繝壹�繧ｸ繧帝俣驕輔∴縺ｦ縺�∪縺帙ｓ縺具ｼ�');
+
+      } else {
+
+        $('#submit').prop('disabled', true);
+
+        // 逕ｻ髱｢讒狗ｯ�
+        if (player){
+          player.destroy();
+        }
+
+        // 767px 莉･荳九°縺ｩ縺�°
+        const isLower767px = window.matchMedia && window.matchMedia('screen and (max-width: 767px)').matches;
+
+        // Zone ID
+        // PC: 1493487 SP: 1493753
+        const zoneid = (isLower767px ? '1493753' : '1493487');
+
+        // 蠎�相縺ｮ HTML (Geniee)
+        const geniee = (`
+          <div class="convert-ads mt-2 ` + (isLower767px ? 'pb-2' : '') + `">
+            <h3 class="msmall mb-3 w-100"><i class="fas fa-ad"></i>繧ｹ繝昴Φ繧ｵ繝ｼ繝ｪ繝ｳ繧ｯ</h3>
+            <iframe class="convert-ads-iframe"
+              id="ac${zoneid}be"
+              name="ac${zoneid}be"
+              src="https://aladdin.genieesspv.jp/yie/ld/ifk?zoneid=${zoneid}"
+              frameborder="0"
+              scrolling="no"></iframe>
+            <a class="convert-ads-iframe d-flex" href="https://bit.ly/46l5uMv" target="_blank">
+              <img class="d-inline-block mx-auto" loading="lazy" alt="TunePat YouTube MP3 Converter"
+                src="files/ads/tunepat-youtube-mp3-converter_${isLower767px ? '348x250' : '720x90'}.png" />
+            </a>
+          </div>
+        `);
+
+        $('#convert-box').html(
+          `<div class="convert card" style="display: none; opacity: 0;">
+            <div class="card-body px-sm-5">
+
+              <h3 class="msmall mt-2"><i class="fas fa-download"></i>繝繧ｦ繝ｳ繝ｭ繝ｼ繝�</h3>
+
+              <div class="convert-thumbnail float-md-right pt-4 pb-1 pb-md-3">
+                <img class="convert-thumbnail-img px-4 pr-md-0 pb-3" src="files/thumbnail_wait.jpg">
+                <div class="convert-artwork pl-md-4" style="display: none;">
+                  <h3 class="convert-artwork-toggle msmall font-weight-bold mb-3">
+                    <i class="fas fa-chevron-down"></i>繧｢繝ｫ繝舌Β繧｢繝ｼ繝医Ρ繝ｼ繧ｯ
+                  </h3>
+                  <div class="convert-artwork-wrap" style="display: none;">
+                    <img class="convert-artwork-img px-4 px-md-0 pb-1" src="files/artwork_fail.jpg">
+                    <div class="text-center">
+                      <a class="convert-artwork-download msmall" target="_blank" download><b>繝繧ｦ繝ｳ繝ｭ繝ｼ繝�</b></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              ` + (isLower767px ? geniee : '') + `
+
+              <p class="mt-3">
+                <span class="no-wrap">蜍慕判縺ｮ URL��</span><a class="convert-url" target="_blank" href="` + url + `">` + url + `</a>
+              </p>
+              <p>
+                <span class="no-wrap">蜍慕判縺ｮ繧ｿ繧､繝医Ν��</span><span class="convert-title">蜿門ｾ嶺ｸｭ窶ｦ</span>
+              </p>
+              <p>
+                <span class="no-wrap">繝輔か繝ｼ繝槭ャ繝茨ｼ�</span><span class="convert-format">` + format + `</span>
+              </p>
+              <div class="convert-after">
+                <p>
+                  <span class="convert-file" style="display: none;">
+                    <span class="no-wrap">繝輔ぃ繧､繝ｫ蜷搾ｼ�</span><a class="convert-filename" target="_blank">蜿門ｾ嶺ｸｭ窶ｦ</a>
+                  </span>
+                </p>
+                <p>
+                  <span class="convert-filesize-wrap" style="display: none;">
+                    <span class="no-wrap"><span class="convert-provisional">證ｫ螳�</span>繝輔ぃ繧､繝ｫ繧ｵ繧､繧ｺ��</span><span class="convert-filesize">蜿門ｾ嶺ｸｭ窶ｦ</span>
+                  </span>
+                </p>
+                <p class="convert-range-wrap" style="display: none;">
+                  <span class="convert-range"></span>
+                </p>
+                <p class="mb-0 pb-3 d-flex align-items-center">
+                  <img class="convert-load mr-2" style="width: 32px;" src="files/load.gif">
+                  <b><span class="convert-result">螟画鋤繧貞ｾ�ｩ溘＠縺ｦ縺�∪縺吮ｦ 縺励�繧峨￥縺雁ｾ�■縺上□縺輔＞窶ｦ</span></b>
+                </p>
+                <p class="convert-log-wrap" style="display: none;">
+                  <b>螟画鋤繝ｭ繧ｰ��</b><br>
+                  <span class="convert-log"></span>
+                </p>
+                <p class="convert-errorlog-wrap text-danger" style="display: none;">
+                  <b>繧ｨ繝ｩ繝ｼ繝ｭ繧ｰ��</b><br>
+                  <span class="convert-errorlog"></span>
+                </p>
+              </div>
+
+              ` + (isLower767px ? '' : geniee) + `
+
+              <div class="convert-preview mt-4" style="display: none;">
+                <h3 class="msmall mb-3 w-100"><i class="fas fa-play-circle"></i>繝励Ξ繝薙Η繝ｼ</h3>
+                <div class="mediaplayer"></div>
+
+                <div class="convert-download-wrap d-flex justify-content-center mt-4 mb-1">
+                  <a class="convert-download" download style="display: none;">
+                    <button type="button" class="btn btn-ytmp3" style="width: 237px;">
+                      <i class="fas fa-download"></i><span class="convert-download-text">繝輔ぃ繧､繝ｫ繧偵ム繧ｦ繝ｳ繝ｭ繝ｼ繝�</span>
+                    </button>
+                  </a>
+                </div>
+                <div class="d-flex justify-content-center mb-2">
+                  <button type="button" class="convert-close btn btn-ytmp3" style="width: 237px; display: none;">
+                    <i class="fas fa-times"></i>髢峨§繧�
+                  </button>
+                </div>
+
+              </div>
+
+              <div class="w-100" style="clear: both;"></div>
+
+            </div>
+          </div>`
+        );
+
+        // 繧｢繝ｼ繝医Ρ繝ｼ繧ｯ髢矩哩
+        document.querySelector('.convert-artwork-toggle').addEventListener('click', () => {
+          if ($(this).find('i.fas').css('transform') === 'none') {
+            $(this).find('i.fas').css('transform', 'rotate(180deg)');
+          } else {
+            $(this).find('i.fas').css('transform', 'none');
+          }
+          $('.convert-artwork-wrap').slideToggle(350);
+        });
+
+        // 荳蠎ｦ繝繧ｦ繝ｳ繝ｭ繝ｼ繝峨＠縺溘ｉ縲後ｂ縺�ｸ蠎ｦ繝繧ｦ繝ｳ繝ｭ繝ｼ繝峨阪↓縺吶ｋ
+        document.querySelector('.convert-download').addEventListener('click', () => {
+          $('.convert-download-text').text('繧ゅ≧荳蠎ｦ繝繧ｦ繝ｳ繝ｭ繝ｼ繝�');
+        });
+
+        // 逕ｻ髱｢繧帝哩縺倥ｋ
+        document.querySelector('.convert-close').addEventListener('click', () => {
+          player.destroy();
+          $('.convert').slideUp(500).animate(
+            { opacity: 0 },
+            { queue: false, duration: 500, easing: 'swing' }
+          );
+          $('html, body').animate({ scrollTop:0 }, 500, 'swing');
+        });
+
+        // 螟画鋤逕ｻ髱｢繧定｡ｨ遉ｺ
+        $('.convert').slideDown(500).animate(
+          { opacity: 1 },
+          { queue: false, duration: 500, easing: 'swing' }
+        );
+
+        // 繝｡繧ｿ繝��繧ｿ蜿門ｾ�
+        $.ajax({
+          url: `${apiBaseUrl}/api/metadata`,
+          type: 'post',
+          data: {url: url},
+          cache: false,
+        }).done(function(data) {
+          $('.convert-title').text(data['title']).velocity('fadeIn', 500);
+          $('.convert-thumbnail-img').attr('src', data['thumbnail']);
+          $('.convert-artwork-img').attr('src', data['artwork']);
+          $('.convert-artwork-download').attr('href', data['artwork']);
+          $('.convert-artwork-download').attr('download', (title === '' ? data['title'] : title) + '.artwork.jpg');
+          $('.convert-thumbnail-img').velocity('fadeIn', 500);
+          $('.convert-artwork').velocity('fadeIn', 500);
+        }).fail(function(data) {
+          $('.convert-title').text('蜿門ｾ励↓螟ｱ謨励＠縺ｾ縺励◆窶ｦ').velocity('fadeIn', 500);
+          $('.convert-thumbnail-img').attr('src', 'files/thumbnail_fail.jpg');
+          $('.convert-artwork-img').attr('src', 'files/artwork_fail.jpg');
+          $('.convert-artwork-download').attr('href', 'files/artwork_fail.jpg');
+          $('.convert-thumbnail-img').velocity('fadeIn', 500);
+          $('.convert-artwork').velocity('fadeIn', 500);
+        });
+
+        // 騾ｲ謐励ｒ蜿門ｾ�
+        let progressXHR;
+        function getProgress(last){
+          progressXHR = $.ajax({
+            url: `${apiBaseUrl}/api/progress`,
+            type: 'post',
+            data: {url: url, last: last, usearia2: usearia2},
+            cache: false,
+          }).done(function(data) {
+            // 螟画鋤邨ゆｺ�ｾ後↓譖ｸ縺肴鋤縺医※縺励∪縺��繧帝亟豁｢縺吶ｋ
+            if (!($('.convert-result').hasClass('convert-done'))){
+              $('.convert-result').text(data['progress']);
+              getProgress(data['progress']);
+            } else {
+              // 螟画鋤縺檎ｵゅｏ縺｣縺溘�縺ｧ繝ｪ繧ｯ繧ｨ繧ｹ繝医ｒ繧ｭ繝｣繝ｳ繧ｻ繝ｫ
+              progressXHR.abort();
+            }
+          }).fail(function(data){
+            if (!($('.convert-result').hasClass('convert-done'))){
+              $('.convert-result').text('騾ｲ謐礼憾豕√�蜿門ｾ励↓螟ｱ謨励＠縺ｾ縺励◆窶ｦ');
+            } else {
+              // 螟画鋤縺檎ｵゅｏ縺｣縺溘�縺ｧ繝ｪ繧ｯ繧ｨ繧ｹ繝医ｒ繧ｭ繝｣繝ｳ繧ｻ繝ｫ
+              progressXHR.abort();
+            }
+          });
+        };
+
+        getProgress('');
+
+        // 逕ｻ髱｢繧偵せ繧ｯ繝ｭ繝ｼ繝ｫ
+        $('#convert-box').velocity('scroll', { duration: 500, offset: -70, easing:'ease-in-out' });
+
+        // 繝輔か繝ｼ繝�繧偵す繝ｪ繧｢繝ｩ繧､繧ｺ縺励◆譁�ｭ怜�繧偵＆繧峨↓ Base64 繧ｨ繝ｳ繧ｳ繝ｼ繝峨＠縺ｦ繝上ャ繧ｷ繝･縺ｿ縺溘＞縺ｫ縺吶ｋ
+        const hash = btoa($('#form').serialize());
+
+        // 繝輔か繝ｼ繝�騾∽ｿ｡
+        try {
+
+          // EventSource (Server-Sent Events) 繧帝幕縺�
+          // 讓呎ｺ悶� EventSource 縺ｧ縺ｯ POST 縺ｧ縺ｮ繝ｪ繧ｯ繧ｨ繧ｹ繝医↓蟇ｾ蠢懊＠縺ｦ縺�↑縺��縺ｧ縲￣olyfill 迚医ｒ菴ｿ縺�
+          const eventsource = new SSE(`${apiBaseUrl}/api/youtube-dl`, {
+            method: 'POST',
+            headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
+            payload: $('#form').serialize(),
+          });
+
+          eventsource.addEventListener('interface', (event) => {
+            const data = JSON.parse(event.data);
+            console.log('interface: ' + data.interface);
+          });
+
+          eventsource.addEventListener('ping', (event) => {
+            const data = JSON.parse(event.data);
+            console.log('ping: ' + data.time);
+          });
+
+          eventsource.addEventListener('wait', (event) => {
+            const data = JSON.parse(event.data);
+            console.log('wait: ', data);
+            $('.convert-result').html(`
+                螟画鋤繧ｻ繝�す繝ｧ繝ｳ縺檎ｩｺ縺上�繧貞ｾ�▲縺ｦ縺�∪縺吮ｦ<br>
+                迴ｾ蝨ｨ縺ｮ蜷梧凾螟画鋤謨ｰ: ${data.simul_converting_count}/${data.simul_converting_count_max} /
+                蠕�ｩ溘そ繝�す繝ｧ繝ｳ謨ｰ: ${data.wait_lock_files.length}
+            `);
+          });
+
+          eventsource.addEventListener('result', (event) => {
+            const data = JSON.parse(event.data);
+            console.log(data);
+
+            // 螟画鋤縺檎ｵゅｏ縺｣縺溘�縺ｧ騾ｲ謐� API 縺ｸ縺ｮ繝ｪ繧ｯ繧ｨ繧ｹ繝医ｒ繧ｭ繝｣繝ｳ繧ｻ繝ｫ
+            progressXHR.abort();
+
+            // 陦ｨ遉ｺ繝ｻ髱櫁｡ｨ遉ｺ
+            $('.convert-after').delay(100).hide();
+            $('.convert-provisional').delay(100).hide();
+            $('.convert-load').delay(100).hide();
+            $('.convert-file').delay(100).show();
+            $('.convert-filesize-wrap').delay(100).show();
+            $('#submit').prop('disabled', false);
+
+            // 繝繧ｦ繝ｳ繝ｭ繝ｼ繝峨Μ繝ｳ繧ｯ
+            const downloadUrl = `${apiBaseUrl}/${data['file']}?hash=${hash}`;
+            const downloadApiUrl = `${apiBaseUrl}/api/download?id=${data['uniqueid']}&extension=${data['extension']}&filename=${encodeURIComponent(data['filename'])}&hash=${hash}`;
+
+            // 蛟､繧剃ｻ｣蜈･
+            $('.convert-filename').delay(100).text(data['filename']);
+            $('.convert-filename').delay(100).attr('href', downloadUrl);
+            $('.convert-filesize').delay(100).text(data['filesize']);
+
+            if (data['range'] && data['range_result']){
+              $('.convert-range-wrap').delay(100).show();
+              if (data['range_fromtime'] == '') data['range_fromtime'] = '00:00:00';
+              if (data['range_totime'] == '') data['range_fromtime'] = 'END';
+              $('.convert-range').delay(100).html('螟画鋤遽�峇��' + data['range_fromtime'] + ' �� ' + data['range_totime']);
+            } else if (data['range'] && !data['range_result']){
+              $('.convert-range-wrap').delay(100).show();
+              $('.convert-range').delay(100).html('螟画鋤遽�峇�壼虚逕ｻ縺ｮ蛻�ｊ蜿悶ｊ縺ｫ螟ｱ謨励＠縺ｾ縺励◆窶ｦ�域凾髢薙′髢馴＆縺｣縺ｦ縺�↑縺�°遒ｺ隱阪＠縺ｦ縺ｿ縺ｦ縺上□縺輔＞��');
+            }
+
+            // 邨先棡繧定｡ｨ遉ｺ
+            $('.convert-result').addClass('convert-done');
+            if (data['status'] == 'success'){
+              $('.convert-result').delay(100).addClass('text-success');
+              $('.convert-result').delay(100).text('螟画鋤繧呈ｭ｣蟶ｸ縺ｫ螳御ｺ�＠縺ｾ縺励◆縲�');
+              // 繝ｭ繧ｰ繧定｡ｨ遉ｺ
+              if (data['information']){
+                $('.convert-log-wrap').delay(100).show();
+                $('.convert-log').delay(100).html(data['log'].join('<br>'));
+              }
+            } else {
+              $('.convert-result').delay(100).addClass('text-danger');
+              $('.convert-result').delay(100).html('繧ｨ繝ｩ繝ｼ��' + data['error']);
+              $('.convert-errorlog-wrap').delay(100).show();
+              $('.convert-errorlog').delay(100).html(data['errorlog'].join('<br>'));
+            }
+
+            $('.convert-after').delay(100).velocity('fadeIn', 800);
+
+            if (data['status'] == 'success'){
+
+              // 繝繧ｦ繝ｳ繝ｭ繝ｼ繝峨Μ繝ｳ繧ｯ繧定｡ｨ遉ｺ
+              $('.convert-download').attr('download', data['filename']);
+              $('.convert-download').attr('href', downloadApiUrl);
+
+              $('.convert-download').show();
+              $('.convert-close').show();
+
+              // 繝励Ξ繧､繝､繝ｼ繧貞�譛溷喧
+              if (data['mediatype'] == 'video'){
+                player = new DPlayer({
+                  container: document.getElementsByClassName('mediaplayer')[0],
+                  volume: 1.0,
+                  screenshot: true,
+                  loop: true,
+                  lang: 'ja-jp',
+                  theme: '#4ECDC4',
+                  video: {
+                    url: downloadUrl,
+                    type: 'auto'
+                  },
+                });
+              } else if (data['mediatype'] == 'audio'){
+                player = new APlayer({
+                  container: document.getElementsByClassName('mediaplayer')[0],
+                  volume: 1.0,
+                  lang: 'ja-jp',
+                  theme: '#4ECDC4',
+                  audio: [{
+                      name: data['title'],
+                      artist: 'YouTubeMP3繧ゅ←縺�',
+                      url: downloadUrl,
+                      cover: $('.convert-artwork-img').attr('src')
+                  }]
+              });
+              }
+
+              $('.convert-preview').delay(100).slideDown(400).animate(
+                { opacity: 1 },
+                { queue: false, duration: 500, easing: 'swing' }
+              );
+
+            }
+
+            // 繧ｵ繧ｦ繝ｳ繝峨ｒ魑ｴ繧峨☆
+            if (data['playsound']){
+              sound.play();
+            }
+
+          });
+
+          // 縺薙ｌ縺ｧ繝ｪ繧ｯ繧ｨ繧ｹ繝医′鬟帙�
+          eventsource.stream();
+
+        } catch (error) {
+          $('.convert-provisional').delay(100).hide();
+          $('.convert-load').delay(100).hide();
+          $('#submit').prop('disabled', false);
+
+          $('.convert-result').delay(100).addClass('convert-done');
+          $('.convert-result').delay(100).addClass('text-danger');
+          $('.convert-result').delay(100).html(
+            '繧ｨ繝ｩ繝ｼ�壽磁邯壹′繝ｪ繧ｻ繝�ヨ縺輔ｌ縺溘◆繧√∝､画鋤縺ｫ螟ｱ謨励＠縺ｾ縺励◆窶ｦ<br>縺ｻ縺ｨ繧薙←縺ｯ Web 繧ｵ繝ｼ繝舌�縺ｮ蜀崎ｵｷ蜍輔↓繧医ｋ繧ゅ�縺ｧ縺吶ゅｂ縺�ｸ蠎ｦ隧ｦ縺励※縺ｿ縺ｦ縺上□縺輔＞縲�');
+          $('.convert-errorlog-wrap').delay(100).show();
+          $('.convert-errorlog').delay(100).html(error.message);
+        }
+
+      }
+    });
+
+  });
